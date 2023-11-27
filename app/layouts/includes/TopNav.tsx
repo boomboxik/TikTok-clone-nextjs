@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { BiSearch } from "react-icons/bi"
 
 export default function TopNav() {
     const router = useRouter()
@@ -39,7 +40,12 @@ export default function TopNav() {
                                 </Link>
                             </div>
                         </div>
+
+                        <div className="px-3 py-1 flex items-center border-l border-l-gray-300">
+                            <BiSearch color="#A1A2A7" size="22" />
+                        </div>
                     </div>
+
                  </div>
             </div>
         </>
