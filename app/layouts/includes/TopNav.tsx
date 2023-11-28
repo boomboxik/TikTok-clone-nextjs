@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { BiSearch } from "react-icons/bi"
+import { AiOutlinePlus } from "react-icons/ai"
 
 export default function TopNav() {
     const router = useRouter()
@@ -9,6 +10,10 @@ export default function TopNav() {
     const handleSearchName = (event: { target: { value: string } }) => {
          console.log(event.target.value)
     }
+
+    const goTo = () => {
+        console.log("here");
+    } 
 
     return (
         <>
@@ -46,8 +51,18 @@ export default function TopNav() {
                         </div>
                     </div>
 
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => goTo}
+                        className="flex items-center border rounded-sm py-[6px] hover:bg-gray-100 pl-1.5"
+                      >
+                        <AiOutlinePlus color="#000000" size="22"/>
+                        <span className="px-2 font-medium text-[15px]">Upload</span>
+                      </button>
+                    </div>
+                 
                  </div>
             </div>
         </>
     )
-}
+}   
