@@ -2,6 +2,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { BiSearch } from "react-icons/bi"
 import { AiOutlinePlus } from "react-icons/ai"
+import { BsThreeDotsVertical } from "react-icons/bs"
 
 export default function TopNav() {
     const router = useRouter()
@@ -66,6 +67,7 @@ export default function TopNav() {
                         >
                             <span className="whitespace-nowrap mx-4 font-medium text-[15px]">Log in</span>
                         </button>
+                        <BsThreeDotsVertical color="#161724" size="25"/>
                       </div>
                     </div>
                  
