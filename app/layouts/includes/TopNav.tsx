@@ -59,6 +59,14 @@ export default function TopNav() {
                         <AiOutlinePlus color="#000000" size="22"/>
                         <span className="px-2 font-medium text-[15px]">Upload</span>
                       </button>
+
+                      <div className="flex items-center">
+                        <button
+                            className="flex items-center bg-[#F02C56] text-white border rounded-md px-3 py-[6px]"
+                        >
+                            <span className="whitespace-nowrap mx-4 font-medium text-[15px]">Log in</span>
+                        </button>
+                      </div>
                     </div>
                  
                  </div>
