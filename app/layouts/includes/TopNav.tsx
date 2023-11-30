@@ -3,6 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { BiSearch, BiUser } from "react-icons/bi"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BsThreeDotsVertical } from "react-icons/bs"
+import { FiLogOut } from "react-icons/fi"
 
 export default function TopNav() {
     const router = useRouter()
@@ -85,6 +86,12 @@ export default function TopNav() {
                                             >
                                                 <BiUser size="20"/>
                                                 <span className="pl-2 font-semibold text-sm">Profile</span>
+                                            </button>
+                                            <button
+                                                className="flex items-center w-full justify-start py-3 px-2 hover:bg-gray-100 cursor-pointer"
+                                            >
+                                                <FiLogOut size="20"/>
+                                                <span className="pl-2 font-semibold text-sm">Log out</span>
                                             </button>
                                         </div>
                                     </div>
