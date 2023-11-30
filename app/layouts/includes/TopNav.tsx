@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { BiSearch } from "react-icons/bi"
+import { BiSearch, BiUser } from "react-icons/bi"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BsThreeDotsVertical } from "react-icons/bs"
 
@@ -79,6 +79,14 @@ export default function TopNav() {
                                     >
                                         <img className="rounded-full w-[35px] h-[35px]" src= 'https://placehold.co/35'/>
                                     </button>
+                                        <div className="absolute bg-white rounded-lg py-1.5 w-[200px] shadow-xl border top-[40px] right-0">
+                                            <button
+                                                className="flex items-center w-full justify-start py-3 px-2 hover:bg-gray-100 cursor-pointer"
+                                            >
+                                                <BiUser size="20"/>
+                                                <span className="pl-2 font-semibold text-sm">Profile</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                         )}                    
