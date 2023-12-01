@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MenuItem from "./MenuItem";
 
 export default function SideNavMain() {
     const pathname = usePathname()
@@ -20,6 +21,8 @@ export default function SideNavMain() {
                             sizeString="25"
                         />
                     </Link>
+                    <MenuItem iconString="Following" colorString="#000000" sizeString="25"/>
+                    <MenuItem iconString="LIVE" colorString="#000000" sizeString="25"/>
                 </div>
             </div>
         </>
