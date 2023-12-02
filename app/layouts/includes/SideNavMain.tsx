@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MenuItem from "./MenuItem";
+import ClientOnly from "@/app/components/ClientOnly";
 
 export default function SideNavMain() {
     const pathname = usePathname()
@@ -23,6 +24,17 @@ export default function SideNavMain() {
                     </Link>
                     <MenuItem iconString="Following" colorString="#000000" sizeString="25"/>
                     <MenuItem iconString="LIVE" colorString="#000000" sizeString="25"/>
+
+                    <div className="border-b lg:ml-2 mt-2" />
+                    <h3 className="lg:block hidden text-xs text-gray-600 font-semibold pt-4 pb-2 px-2">Suggested accounts</h3>
+
+                    <div className="lg:hidden block pt-3" />
+
+                    <ClientOnly>
+                        <div className="cursor-pointer"> 
+                                <MenuItemFollow user={{ id: '1', name: "Test user", image: "https://placehold.co/50"}} /> 
+                        </div>
+                    </ClientOnly>
                 </div>
             </div>
         </>
