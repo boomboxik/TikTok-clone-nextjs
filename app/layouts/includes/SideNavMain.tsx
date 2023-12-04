@@ -57,6 +57,14 @@ export default function SideNavMain() {
                             </button>
                         </div>
                     ) : null}
+                    <div className="lg:block hidden border-b lg:ml-2 mt-2" />
+
+                    <div className="lg:block hidden text-[11px] text-gray-500">
+                        <p className="pt-4 px-2">About Newsroom TikTok Shop Contact Careers ByteDance</p>
+                        <p className="pt-4 px-2">TikTok for Good Advertise Developers Transparency TikTok Rewards TikTok Browse TikTok Embeds</p>
+                        <p className="pt-4 px-2">Help Safety Terms Privacy Creator Portal Community Guidelines</p>
+                        <p className="pt-4 px-2">© 2023 TikTok</p>
+                    </div>
                 </div>
             </div>
         </>
