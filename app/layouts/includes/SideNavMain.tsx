@@ -30,12 +30,33 @@ export default function SideNavMain() {
                     <h3 className="lg:block hidden text-xs text-gray-600 font-semibold pt-4 pb-2 px-2">Suggested accounts</h3>
 
                     <div className="lg:hidden block pt-3" />
-
                     <ClientOnly>
                         <div className="cursor-pointer"> 
                                 <MenuItemFollow user={{ id: '1', name: "Test user", image: "https://placehold.co/50"}} /> 
                         </div>
                     </ClientOnly>
+
+                    <button className="lg:block hidden text-[#F02C56] pt-1.5 pl-2 text-[13px]">
+                        See all
+                    </button>
+
+                    {true ? (
+                        <div>
+                            <div className="border-b lg:ml-2 mt-2" />
+                            <h3 className="lg:block hidden text-xs text-gray-600 font-semibold pt-4 pb-2 px-2">Following accounts</h3>
+
+                            <div className="lg:hidden block pt-3" />
+                            <ClientOnly>
+                                <div className="cursor-pointer"> 
+                                    <MenuItemFollow user={{ id: '1', name: "Test user", image: "https://placehold.co/50"}} /> 
+                                </div>
+                            </ClientOnly>
+
+                            <button className="lg:block hidden text-[#F02C56] pt-1.5 pl-2 text-[13px]">
+                                See more
+                            </button>
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </>
