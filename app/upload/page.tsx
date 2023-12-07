@@ -15,6 +15,17 @@ export default function Upload() {
     let [error, setError] = useState<UploadError | null>(null);
     let [isUploading, setIsUploading] = useState<boolean>(false);
 
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = event.target.files;
+
+        if (files && files.length > 0) {
+            const file = files[0];
+            const fileUrl = URL.createObjectURL(file);
+            setFileDisplay(fileUrl);
+            setFile(file);
+        }
+    }
+
     return (
         <>
             <UploadLayout>
@@ -56,6 +67,19 @@ export default function Upload() {
                                 <p className="mt-12 text-gray-400 text-sm">MP4</p>
                                 <p className="mt-2 text-gray-400 text-[13px]">Up to 30 minutes</p>
                                 <p className="mt-2 text-gray-400 text-[13px]">Less than 2 GB</p>
+                                <label 
+                                    htmlFor="fileInput" 
+                                    className="px-2 py-1.5 mt-8 text-white text-[15px] w-[80%] bg-[#F02C56] rounded-sm cursor-pointer"
+                                >
+                                    Select file
+                                </label>
+                                <input 
+                                    type="file" 
+                                    id="fileInput"
+                                    onChange={onChange}
+                                    hidden 
+                                    accept=".mp4" 
+                                />
                             </label>
                         ) : (
                             <div></div>
