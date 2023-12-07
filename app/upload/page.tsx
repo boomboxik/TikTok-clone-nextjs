@@ -6,6 +6,7 @@ import { UploadError } from "../types";
 import UploadLayout from "../layouts/UploadLayout";
 import { BiLoaderCircle, BiSolidCloudUpload } from "react-icons/bi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { PiKnifeLight } from "react-icons/pi"
 
 export default function Upload() {
     const router = useRouter()
@@ -143,7 +144,21 @@ export default function Upload() {
                                     </button>
                                 </div>    
                             </div>
-                        )} 
+                        )}
+
+                        <div className="mt-4 mb-6">
+                            <div className="flex bg-[#F8F8F8] py-4 px-6">
+                                <div>
+                                    <PiKnifeLight className="mr-4" size="20"/>
+                                </div>
+                                <div>
+                                    <div className="text-semibold text-[15px] mb-1.5">Divide videos and edit</div>
+                                    <div className="text-semibold text-[13px] text-gray-400">
+                                        You can quickly divide videos into multiple parts, remove redundant parts and turn landscape videos into portrait videos
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </UploadLayout>
