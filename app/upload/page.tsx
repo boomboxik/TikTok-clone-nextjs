@@ -157,6 +157,11 @@ export default function Upload() {
                                         You can quickly divide videos into multiple parts, remove redundant parts and turn landscape videos into portrait videos
                                     </div>
                                 </div>
+                                <div className="flex justify-end max-w-[130px] w-full h-full text-center my-auto">
+                                    <button className="px-8 py-1.5 text-white text-[15px] bg-[#F02C56] rounded-sm">
+                                        Edit
+                                    </button>
+                                </div>
                             </div>
                         </div> 
                     </div>
