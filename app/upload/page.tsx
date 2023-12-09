@@ -169,6 +169,19 @@ export default function Upload() {
                                     <div className="mb-1 text-[15px]">Caption</div>
                                     <div className="text-gray-400 text-[12px]">{caption.length}/150</div>
                                 </div>
+                                <input 
+                                    maxLength={150}
+                                    type="text"
+                                    className="
+                                        w-full
+                                        border
+                                        p-2.5
+                                        rounded-md
+                                        focus:outline-none
+                                    "
+                                    value={caption}
+                                    onChange={event => setCaption(event.target.value)}
+                                />
                             </div>
                         </div> 
                     </div>
