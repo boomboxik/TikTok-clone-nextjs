@@ -3,6 +3,7 @@
 import ClientOnly from "@/app/components/ClientOnly";
 import MainLayout from "@/app/layouts/MainLayout";
 import { ProfilePageTypes } from "@/app/types";
+import { BsPencil } from "react-icons/bs";
 
 export default function Profile({ params }: ProfilePageTypes) {
     const currentProfile = {
@@ -36,6 +37,19 @@ export default function Profile({ params }: ProfilePageTypes) {
                                     <div className="h-[60px]" />
                                 )}
                             </ClientOnly>
+
+                            {true ? (
+                                <button 
+                                    className="flex item-center rounded-md py-1.5 px-3.5 mt-3 text-[15px] font-semibold border hover:bg-gray-100"
+                                >
+                                    <BsPencil className="mt-0.5 mr-1" size="18"/>
+                                    <span>Edit profile</span>
+                                </button>
+                            ) : (
+                                <button className="flex item-center rounded-md py-1.5 px-8 mt-3 text-[15px] text-white font-semibold bg-[#F02C56]">
+                                    Follow
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
