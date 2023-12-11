@@ -5,7 +5,7 @@ import MainLayout from "@/app/layouts/MainLayout";
 import { ProfilePageTypes } from "@/app/types";
 
 export default function Profile({ params }: ProfilePageTypes) {
-    const currentUser = {
+    const currentProfile = {
         id: '123',
         user_id: '123',
         name: 'boomboxik',
@@ -19,11 +19,24 @@ export default function Profile({ params }: ProfilePageTypes) {
                     <div className="flex w-[calc(100vw-230px)]">
                         <ClientOnly>
                             {true ? (
-                                <img className="w-[120px] min-w-[120px] rounded-full" src={currentUser.image} />
+                                <img className="w-[120px] min-w-[120px] rounded-full" src={currentProfile.image} />
                             ) : (
                                 <div className="min-w-[150px] h-[120px] bg-gray-200 rounded-full" />
                             )}
                         </ClientOnly>
+
+                        <div className="ml-5 w-full">
+                            <ClientOnly>
+                                {currentProfile?.name ? (
+                                    <div>
+                                        <p className="text-[30px] font-bold truncate">{currentProfile?.name}</p>
+                                        <p className="text-[18px] truncate">{currentProfile?.name}</p>
+                                    </div>
+                                ) : (
+                                    <div className="h-[60px]" />
+                                )}
+                            </ClientOnly>
+                        </div>
                     </div>
                 </div>
             </MainLayout>
