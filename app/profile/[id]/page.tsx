@@ -52,6 +52,17 @@ export default function Profile({ params }: ProfilePageTypes) {
                             )}
                         </div>
                     </div>
+
+                    <div className="flex items-center pt-4">
+                        <div className="mr-4">
+                            <span className="font-bold">10K</span>
+                            <span className="text-gray-500 font-light text-[15px] pl-1.5">Following</span>
+                        </div>
+                        <div className="mr-4">
+                            <span className="font-bold">44K</span>
+                            <span className="text-gray-500 font-light text-[15px] pl-1.5">Followers</span>
+                        </div>    
+                    </div>
                 </div>
             </MainLayout>
         </>
