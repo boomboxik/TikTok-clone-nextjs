@@ -63,6 +63,12 @@ export default function Profile({ params }: ProfilePageTypes) {
                             <span className="text-gray-500 font-light text-[15px] pl-1.5">Followers</span>
                         </div>    
                     </div>
+
+                    <ClientOnly>
+                        <p className="pt-4 mr-4 text-gray-500 font-light text-[15px] pl-1.5 max-w-[500px]">
+                            {currentProfile?.bio}
+                        </p>
+                    </ClientOnly>
                 </div>
             </MainLayout>
         </>
