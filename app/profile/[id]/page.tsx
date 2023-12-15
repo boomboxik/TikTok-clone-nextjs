@@ -1,6 +1,7 @@
 "use client"
 
 import ClientOnly from "@/app/components/ClientOnly";
+import PostUser from "@/app/components/profile/PostUser";
 import MainLayout from "@/app/layouts/MainLayout";
 import { ProfilePageTypes } from "@/app/types";
 import { BsPencil } from "react-icons/bs";
@@ -74,6 +75,18 @@ export default function Profile({ params }: ProfilePageTypes) {
                         <li className="w-60 text-center py-2 text-[17px] font-semibold border-b-2 border-b-black">Videos</li>
                         <li className="w-60 text-gray-500 text-center py-2 text-[17px] font-semibold">Liked</li>
                     </ul>
+
+                    <ClientOnly>
+                        <div className="mt-4 grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+                            <PostUser post={{
+                                id: '123',
+                                user_id: '123',
+                                video_url: '/budda.mp4',
+                                text: 'this is a post',
+                                created_at: 'date here'
+                            }} />
+                        </div>
+                    </ClientOnly>
                 </div>
             </MainLayout>
         </>
