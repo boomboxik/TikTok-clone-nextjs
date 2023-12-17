@@ -9,7 +9,7 @@ export default function EditProfileOverlay() {
     const [file, setFile] = useState<File | null>(null);
     const [cropper, setCropper] = useState<CropperDimensions | null>(null);
     const [uploadedImage, setUploadedImage] = useState<string | null>(null);
-    const [userImage, setUserImage] = useState<string | ''>('');
+    const [userImage, setUserImage] = useState<string | ''>('https://placehold.co/100');
     const [userName, setUserName] = useState<string | ''>('');
     const [userBio, setUserBio] = useState<string | ''>('');
     const [isUpdating, setIsUpdating] = useState(false);
@@ -37,6 +37,29 @@ export default function EditProfileOverlay() {
                         >
                             <AiOutlineClose size="25"/>
                         </button>
+                    </div>
+
+                    <div className={`h-[calc(500px-200px)] ${!uploadedImage ? 'mt-16' : 'mt-[58px]'}`}>
+                        {!uploadedImage ? (
+                            <div>
+                                <div
+                                    id="ProfilePhotoSection" 
+                                    className="flex flex-col border-b sm:h-[118px] h-[145px] px-1.5 py-2 w-full"
+                                >
+                                    <h3 className="font-semibold text-[15px] sm:mb-0 mb-1 text-gray-700 sm:w-[160px] sm:text-left text-center">
+                                        Profile photo
+                                    </h3>
+
+                                    <div className="flex items-center justify-center sm:-mt-6">
+                                        <label htmlFor="image" className="relative cursor-pointer">
+                                            <img className="rounded-full" width="95" src={userImage} />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+
+                        )}
                     </div>
                 </div>
             </div> 
