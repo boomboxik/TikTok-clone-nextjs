@@ -2,6 +2,7 @@ import { CropperDimensions, ShowErrorObject } from "@/app/types";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsPencil } from "react-icons/bs";
 
 export default function EditProfileOverlay() {
     const router = useRouter
@@ -53,6 +54,10 @@ export default function EditProfileOverlay() {
                                     <div className="flex items-center justify-center sm:-mt-6">
                                         <label htmlFor="image" className="relative cursor-pointer">
                                             <img className="rounded-full" width="95" src={userImage} />
+
+                                            <button className="absolute bottom-0 right-0 rounded-full bg-white shadow-xl border p-1 border-gray-300 inline-block w-[32px] h-[32px]">
+                                                <BsPencil size="17" className="ml-0.5"/>
+                                            </button>
                                         </label>
                                     </div>
                                 </div>
