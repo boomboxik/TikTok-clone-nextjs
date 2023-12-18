@@ -16,6 +16,18 @@ export default function EditProfileOverlay() {
     const [isUpdating, setIsUpdating] = useState(false);
     const [error, setError] = useState<ShowErrorObject | null>(null)
 
+    const getUploadedImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedFile = event.target.files && event.target.files[0];
+        
+        if (selectedFile) {
+            setFile(selectedFile);
+            setUploadedImage(URL.createObjectURL(selectedFile));
+        } else {
+            setFile(null);
+            setUploadedImage(null);
+        }
+    }
+
     return (
         <>
             <div
@@ -59,6 +71,13 @@ export default function EditProfileOverlay() {
                                                 <BsPencil size="17" className="ml-0.5"/>
                                             </button>
                                         </label>
+                                        <input
+                                            className="hidden"
+                                            type="file"
+                                            id="image"
+                                            onChange={getUploadedImage}
+                                            accept="image/png, image/jpeg, image/jpg"
+                                        />
                                     </div>
                                 </div>
                             </div>
