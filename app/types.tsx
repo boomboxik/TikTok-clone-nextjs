@@ -77,6 +77,14 @@ export interface ProfilePageTypes {
     params: { id: string; };
 }
 
+export interface TextInputCompTypes {
+    string: string;
+    inputType: string;
+    placeholder: string;
+    onUpdate: (newValue: string) => void;
+    error: string;
+}
+
 // LAYOUT INCLUDE TYPES
 export interface MenuItemTypes {
     iconString: string,
