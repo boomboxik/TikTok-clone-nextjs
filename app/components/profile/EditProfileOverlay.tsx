@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
+import TextInput from "../TextInput";
 
 export default function EditProfileOverlay() {
     const router = useRouter
@@ -26,6 +27,13 @@ export default function EditProfileOverlay() {
             setFile(null);
             setUploadedImage(null);
         }
+    }
+
+    const showError = (type: string) => {
+        if (error && Object.entries(error).length > 0 && error?.type == type) {
+            return error.message
+        }
+        return ''
     }
 
     return (
@@ -78,6 +86,33 @@ export default function EditProfileOverlay() {
                                             onChange={getUploadedImage}
                                             accept="image/png, image/jpeg, image/jpg"
                                         />
+                                    </div>
+                                </div>
+
+                                <div
+                                    id="UserNameSection" 
+                                    className="flex flex-col border-b sm:h-[118px]  px-1.5 py-2 mt-1.5  w-full"
+                                >
+                                    <h3 className="font-semibold text-[15px] sm:mb-0 mb-1 text-gray-700 sm:w-[160px] sm:text-left text-center">
+                                        Name
+                                    </h3>
+
+                                    <div className="flex items-center justify-center sm:-mt-6">
+                                        <div className="sm:w-[60%] w-full max-w-md">
+                                            
+                                            <TextInput 
+                                                string={userName}
+                                                placeholder="Username"
+                                                onUpdate={setUserName}
+                                                inputType="text"
+                                                error={showError('userName')}
+                                            />
+                                            
+                                            <p className={`relative text-[11px] text-gray-500 ${error ? 'mt-1' : 'mt-4'}`}>
+                                                Usernames can only contain letters, numbers, underscores, and periods. 
+                                                Changing your username will also change your profile link.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
