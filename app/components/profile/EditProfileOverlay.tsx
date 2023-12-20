@@ -1,9 +1,11 @@
 import { CropperDimensions, ShowErrorObject } from "@/app/types";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 import TextInput from "../TextInput";
+import { Cropper } from "react-advanced-cropper";
+import 'react-advanced-cropper/dist/style.css'
 
 export default function EditProfileOverlay() {
     const router = useRouter
@@ -151,7 +153,14 @@ export default function EditProfileOverlay() {
                                 </div>
                             </div>
                         ) : (
-
+                            <div className="w-full max-h-[420px] mx-auto bg-black circle-stencil">
+                                <Cropper
+                                    stencilProps={{ aspectRatio: 1 }}
+                                    className="h-[400px]"
+                                    onChange={(cropper) => setCropper(cropper.getCoordinates())}
+                                    src={uploadedImage}
+                                />
+                            </div>
                         )}
                     </div>
                 </div>
