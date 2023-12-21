@@ -6,6 +6,8 @@ import { BsPencil } from "react-icons/bs";
 import TextInput from "../TextInput";
 import { Cropper } from "react-advanced-cropper";
 import 'react-advanced-cropper/dist/style.css'
+import Upload from "@/app/upload/page";
+import { BiLoaderCircle } from "react-icons/bi";
 
 export default function EditProfileOverlay() {
     const router = useRouter
@@ -161,6 +163,33 @@ export default function EditProfileOverlay() {
                                     src={uploadedImage}
                                 />
                             </div>
+                        )}
+                    </div>
+
+                    <div
+                        id="ButtonSection" 
+                        className="absolute p-5 left-0 bottom-0 border-t border-t-gray-300 w-full"
+                    >
+                        {!uploadedImage ? (
+                            <div id="UpdateInfoButtons" className="flex items-center justify-end">
+                                <button 
+                                    disabled={isUpdating}
+                                    className="flex items-center border rounded-sm px-3 py-[6px] hover:bg-gray-100"
+                                >
+                                    <span className="px-2 font-medium text-[15px]">Cancel</span>
+                                </button>
+                                
+                                <button 
+                                    disabled={isUpdating}
+                                    className="flex items-center bg-[#F02C56] text-white border rounded-md ml-3 px-3 py-[6px]"
+                                >
+                                    <span className="mx-4 font-medium text-[15px]">
+                                        {isUpdating ? <BiLoaderCircle color="#ffffff" className="my-1 mx-2.5 animate-spin" /> : "Save" }
+                                    </span>
+                                </button>
+                            </div>
+                        ) : (
+
                         )}
                     </div>
                 </div>
