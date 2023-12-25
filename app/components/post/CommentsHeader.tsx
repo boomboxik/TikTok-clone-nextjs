@@ -23,6 +23,15 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
                             <div className="w-[40px] h-[40px] bg-gray-200 rounded-full"/>
                         )}
                     </Link>
+
+                    <div className="ml-3 pt-0.5">
+                        <Link 
+                            href={`/profile/${post?.user_id}`} 
+                            className="relative z-10 text-[17px] font-semibold hover:underline"
+                        >
+                            {post?.profile.name}
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>
