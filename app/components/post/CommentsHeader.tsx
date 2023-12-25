@@ -31,6 +31,12 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
                         >
                             {post?.profile.name}
                         </Link>
+
+                        <div className="relative z-0 text-[13px] -mt-5 font-light">
+                            {post?.profile.name}
+                            <span className="relative -top-[2px] text-[30px] pl-1 pr-0.5 ">.</span>
+                            <span className="font-medium">{post?.created_at}</span>
+                        </div>
                     </div>
                 </div>
             </div>
