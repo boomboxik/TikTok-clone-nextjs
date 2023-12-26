@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { BiLoaderCircle } from "react-icons/bi";
 import { BsTrash3 } from "react-icons/bs";
+import { ImMusic } from "react-icons/im";
 
 export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes) {
     
@@ -56,9 +57,15 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
                             </button>
                         )}
                     </div>
-                ) : null}
-             
+                ) : null}  
             </div>
+
+            <p className="px-8 mt-4 text-sm">{post?.text}</p>
+
+            <p className="flex item-center gap-2 px-8 mt-4 text-sm font-bold">
+                <ImMusic size="17"/>
+                original sound - {post?.profile.name}
+            </p>
         </>
     )
 }
