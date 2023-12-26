@@ -4,6 +4,8 @@ import { CommentsHeaderCompTypes } from "@/app/types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { BiLoaderCircle } from "react-icons/bi";
+import { BsTrash3 } from "react-icons/bs";
 
 export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes) {
     
@@ -11,6 +13,10 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
     const [hasClickedLike, setHasClickedLike] = useState<boolean>(false)
     const [isDeleteing, setIsDeleteing] = useState<boolean>(false)
     const [userLiked, setUserLiked] = useState<boolean>(false)
+
+    const deletePost = () => {
+        console.log('deletePost')
+    }
 
     return (
         <>
@@ -39,6 +45,19 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
                         </div>
                     </div>
                 </div>
+
+                {true ? (
+                    <div>
+                        {isDeleteing ? (
+                            <BiLoaderCircle className="animate-spin" size="25"/>
+                        ) : (
+                            <button disabled={isDeleteing} onClick={() => deletePost()}>
+                                <BsTrash3 className="cursor-pointer" size="25"/>
+                            </button>
+                        )}
+                    </div>
+                ) : null}
+             
             </div>
         </>
     )
