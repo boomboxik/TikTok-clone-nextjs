@@ -1,7 +1,19 @@
 import { SingleCommentCompTypes } from "@/app/types";
 import Link from "next/link";
+import { useState } from "react";
+import { BiLoaderCircle } from "react-icons/bi";
+import { BsTrash3 } from "react-icons/bs";
 
 export default function SingleComment({ comment, params }: SingleCommentCompTypes) {
+
+    const [isDeleting, setIsDeleting] = useState<boolean>(false)
+
+    const deleteThisComment = () => {
+        let res = confirm("Are you sure you want to delete this comment?")
+        if (!res) return
+
+        //do smthn 
+    }
 
     return (
         <>
@@ -22,7 +34,22 @@ export default function SingleComment({ comment, params }: SingleCommentCompType
                                     {comment?.created_at}
                                 </span>
                             </span>
+
+                            {true ? (
+                                <button 
+                                    disabled={isDeleting} 
+                                    onClick={() => deleteThisComment()}
+                            >
+                                    {isDeleting 
+                                        ? <BiLoaderCircle className="animate-spin" color="#E91E62" size="20"/>
+                                        : <BsTrash3 className="cursor-pointer" size="25"/>
+                                    }
+                                </button>
+                            ) : null}
                         </div>
+
+                        <p className="text-[15px] font-light">{comment.text}</p>
+                        
                     </div>
                 </div>
             </div>
