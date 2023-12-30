@@ -29,7 +29,7 @@ export default function Comments({ params }: CommentsCompTypes) {
                 <div className="pt-2"/>
 
                 <ClientOnly>
-                    {commentsByPost.length > 0 ? (
+                    {commentsByPost.length < 1 ? (
                         <div className="text-center mt-6 text-xl text-gray-500">No comments...</div>
                     ) : (
                         <div>
