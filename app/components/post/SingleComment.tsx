@@ -14,6 +14,16 @@ export default function SingleComment({ comment, params }: SingleCommentCompType
                             src={comment.profile.image}
                         />
                     </Link>
+                    <div className="ml-14 pt-0.5 w-full">
+                        <div className="text-[18px] font-semibold flex items-center justify-between">
+                            <span className="flex items-center">
+                                {comment?.profile?.name} - 
+                                <span className="text-[12px] text-gray-600 font-light ml-1">
+                                    {comment?.created_at}
+                                </span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
