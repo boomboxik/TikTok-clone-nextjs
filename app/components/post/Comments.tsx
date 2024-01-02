@@ -2,6 +2,7 @@ import { CommentsCompTypes } from "@/app/types";
 import ClientOnly from "../ClientOnly";
 import SingleComment from "./SingleComment";
 import { useState } from "react";
+import { BiLoaderCircle } from "react-icons/bi";
 
 export default function Comments({ params }: CommentsCompTypes) {
 
@@ -23,6 +24,10 @@ export default function Comments({ params }: CommentsCompTypes) {
             }
         }
     ]
+
+    const addComment = () => {
+        console.log('addComment')
+    }
 
     return (
         <>
@@ -68,6 +73,20 @@ export default function Comments({ params }: CommentsCompTypes) {
                         placeholder="Add comment..."
                     />
                 </div>
+                {!isUploading ? (
+                    <button
+                        disabled={!comment}
+                        onClick={() => addComment()}
+                        className={`
+                            font-semibold text-sm ml-5 pr-1
+                            ${comment ? 'text-[#F02C56] cursor-pointer' : 'text-gray-400'}
+                        `}
+                    >
+                        Post
+                    </button>
+                ) : (
+                    <BiLoaderCircle className="animate-spin" color="#E91E62" size="20" />
+                )}
             </div>
         </>
     )
