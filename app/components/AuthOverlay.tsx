@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { AiOutlineClose } from "react-icons/ai"
+import Register from "@app/components/auth/Register"
+import Login from "@app/components/auth/Login"
 
 export default function AuthOverlay() {
 
@@ -22,6 +24,9 @@ export default function AuthOverlay() {
                             <AiOutlineClose size="26"/>
                         </button>
                     </div>  
+
+                    {isRegister ? <Register /> : <Login />}
+
                 </div>
             </div>
         </>
