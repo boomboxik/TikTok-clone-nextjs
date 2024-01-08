@@ -1,16 +1,23 @@
-import type { Metadata } from 'next'
+import UserProvider from './context/user'
+import AuthOverlay from "@/app/components/AuthOverlay"
 import './globals.css'
-
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'TokTok Clone',
-  description: 'TokTok Clone',
+  title: 'TikTok Clone',
+  description: 'TikTok Clone',
 }
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <UserProvider>
+        
+        <body>
+          <AuthOverlay />
+          {children}
+        </body>
+      </UserProvider>
     </html>
   )
 }
