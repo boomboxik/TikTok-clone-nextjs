@@ -5,6 +5,7 @@ import { account, ID } from "@/libs/AppWriteClient"
 import { useRouter } from 'next/navigation';
 import { User, UserContextTypes } from "../types";
 import useGetProfileByUserId from "../hooks/useGetProfileByUserId";
+import useCreateProfile from "../hooks/useCreateProfile";
 
 const UserContext = createContext<UserContextTypes | null>(null);
 
