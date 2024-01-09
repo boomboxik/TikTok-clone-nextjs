@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { AiOutlineClose } from "react-icons/ai"
-import Register from "@app/components/auth/Register"
-import Login from "@app/components/auth/Login"
+import Register from "./auth/Register"
+import Login from "./auth/Login"
 
 export default function AuthOverlay() {
 
