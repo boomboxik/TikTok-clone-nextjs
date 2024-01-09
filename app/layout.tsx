@@ -1,7 +1,7 @@
 import UserProvider from './context/user'
-import AuthOverlay from "@/app/components/AuthOverlay"
 import './globals.css'
 import type { Metadata } from 'next'
+import AllOverlays from './components/AllOverlays'
 
 export const metadata: Metadata = {
   title: 'TikTok Clone',
@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <UserProvider>
         
         <body>
-          <AuthOverlay />
+          <AllOverlays />
           {children}
         </body>
       </UserProvider>
