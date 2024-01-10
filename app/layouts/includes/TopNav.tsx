@@ -4,17 +4,26 @@ import { BiSearch, BiUser } from "react-icons/bi"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { FiLogOut } from "react-icons/fi"
+import { useUser } from "@/app/context/user";
+import { useGeneralStore } from "@/app/stores/general";
+import { useEffect } from "react";
 
 export default function TopNav() {
+    const contextUser = useUser()
     const router = useRouter()
     const pathname = usePathname()
+
+    let { setIsLoginOpen, setIsEditProfileOpen } = useGeneralStore()
+
+    useEffect(() => { setIsEditProfileOpen(false) }, [])
 
     const handleSearchName = (event: { target: { value: string } }) => {
          console.log(event.target.value)
     }
 
     const goTo = () => {
-        console.log("here");
+        if (!contextUser?.user) return setIsLoginOpen(true)
+        router.push('/upload')
     } 
 
     return (
@@ -65,6 +74,7 @@ export default function TopNav() {
                       {true ? (
                             <div className="flex items-center">
                                 <button 
+                                    onClick={() => setIsLoginOpen(true)}
                                     className="flex items-center bg-[#F02C56] text-white border rounded-md px-3 py-[6px]"
                                 >
                                     <span className="whitespace-nowrap mx-4 font-medium text-[15px]">Log in</span>
