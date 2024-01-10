@@ -6,13 +6,16 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 import { FiLogOut } from "react-icons/fi"
 import { useUser } from "@/app/context/user";
 import { useGeneralStore } from "@/app/stores/general";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { RandomUsers } from "@/app/types";
 
 export default function TopNav() {
     const contextUser = useUser()
     const router = useRouter()
     const pathname = usePathname()
 
+    const [searchProfiles, setSearchProfiles] = useState<RandomUsers[]>([])
+    let [showMenu, setShowMenu] = useState<boolean>(false)
     let { setIsLoginOpen, setIsEditProfileOpen } = useGeneralStore()
 
     useEffect(() => { setIsEditProfileOpen(false) }, [])
@@ -29,7 +32,7 @@ export default function TopNav() {
     return (
         <>
             <div id="TopNav" className="fixed bg-white z-30 flex items-center w-full border-b h-[60px]">
-                 <div className={`flex items-center justify-between gap-6 w-full px-4 mx-auto ${pathname === '/' ? 'max-w-[1150px]' : ''}`}>
+                <div className={`flex items-center justify-between gap-6 w-full px-4 mx-auto ${pathname === '/' ? 'max-w-[1150px]' : ''}`}>
 
                  <Link href="/">
                         <img className="min-w-[115px] w-[115px]" src="/images/tiktok-logo.png"/>
@@ -71,7 +74,7 @@ export default function TopNav() {
                         <span className="px-2 font-medium text-[15px]">Upload</span>
                       </button>
 
-                      {true ? (
+                      {!contextUser?.user?.id ? (
                             <div className="flex items-center">
                                 <button 
                                     onClick={() => setIsLoginOpen(true)}
@@ -84,12 +87,14 @@ export default function TopNav() {
                         ) : (
                             <div className="flex items-center">
                                 <div className="relative">
-
-                                    <button  
+                                    <button
+                                        onClick={() => setShowMenu(showMenu = !showMenu)}  
                                         className="mt-1 border border-gray-200 rounded-full"
                                     >
                                         <img className="rounded-full w-[35px] h-[35px]" src= 'https://placehold.co/35'/>
                                     </button>
+                                        
+                                    {showMenu ? (
                                         <div className="absolute bg-white rounded-lg py-1.5 w-[200px] shadow-xl border top-[40px] right-0">
                                             <button
                                                 className="flex items-center w-full justify-start py-3 px-2 hover:bg-gray-100 cursor-pointer"
@@ -104,12 +109,12 @@ export default function TopNav() {
                                                 <span className="pl-2 font-semibold text-sm">Log out</span>
                                             </button>
                                         </div>
-                                    </div>
+                                    ) : null}
                                 </div>
+                            </div>
                         )}                    
-                    </div>
-                 
-                 </div>
+                    </div>  
+                </div>
             </div>
         </>
     )}
