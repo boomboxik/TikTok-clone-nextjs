@@ -103,6 +103,10 @@ export default function TopNav() {
                                                 <span className="pl-2 font-semibold text-sm">Profile</span>
                                             </button>
                                             <button
+                                                onClick={async () => {
+                                                    await contextUser?.logout()
+                                                    setShowMenu(false)
+                                                }} 
                                                 className="flex items-center w-full justify-start py-3 px-2 hover:bg-gray-100 cursor-pointer"
                                             >
                                                 <FiLogOut size="20"/>
