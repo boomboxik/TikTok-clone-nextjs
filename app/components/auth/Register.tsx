@@ -1,3 +1,4 @@
+import { useGeneralStore } from "@/app/stores/general";
 import TextInput from "../TextInput";
 import { useState } from "react";
 import { ShowErrorObject } from "@/app/types";
@@ -6,6 +7,7 @@ import { BiLoaderCircle } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
+    let { setIsLoginOpen } = useGeneralStore();
 
     const contextUser = useUser()
     const router = useRouter()
@@ -61,7 +63,7 @@ export default function Register() {
             setLoading(true)
             await contextUser.register(name, email, password)
             setLoading(false)
-            // setIsLoginOpen(false)
+            setIsLoginOpen(false)
             router.refresh()
         } catch (error) {
             console.log(error)
@@ -76,6 +78,7 @@ export default function Register() {
                 <h1 className="text-center text-[28px] mb-4 font-bold">Register</h1>
 
                 <div className="px-6 pb-2">
+
                     <TextInput 
                         string={name}
                         placeholder="Name"
@@ -127,7 +130,7 @@ export default function Register() {
                             ${(!name || !email || !password || !confirmPassword) ? 'bg-gray-200' : 'bg-[#F02C56]'}
                         `}
                     >
-                        {loading ? <BiLoaderCircle className="animate-spin" color="#ffffff" size={25} /> : 'Log in'}
+                        {loading ? <BiLoaderCircle className="animate-spin" color="#ffffff" size={25} /> : 'Register'}
                     </button>
                 </div>
             </div>
