@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from "react"
 import { AiOutlineClose } from "react-icons/ai"
 import Register from "./auth/Register"
