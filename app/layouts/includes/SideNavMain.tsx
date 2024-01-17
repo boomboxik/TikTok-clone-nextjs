@@ -3,9 +3,16 @@ import { usePathname } from "next/navigation";
 import MenuItem from "./MenuItem";
 import ClientOnly from "@/app/components/ClientOnly";
 import MenuItemFollow from "./MenuItemFollow";
+import { useUser } from "@/app/context/user";
+import { useGeneralStore } from "@/app/stores/general";
 
 export default function SideNavMain() {
+
+    let { setRandomUsers, randomUsers} = useGeneralStore()
+
+    const contextUser = useUser()
     const pathname = usePathname()
+
     return(
         <>
             <div
@@ -31,8 +38,10 @@ export default function SideNavMain() {
 
                     <div className="lg:hidden block pt-3" />
                     <ClientOnly>
-                        <div className="cursor-pointer"> 
-                                <MenuItemFollow user={{ id: '1', name: "Test user", image: "https://placehold.co/50"}} /> 
+                        <div className="cursor-pointer">
+                            {randomUsers?.map((user, index) => ( 
+                                <MenuItemFollow key={index} user={user} /> 
+                            ))}
                         </div>
                     </ClientOnly>
 
@@ -40,15 +49,17 @@ export default function SideNavMain() {
                         See all
                     </button>
 
-                    {true ? (
+                    {contextUser?.user?.id ? (
                         <div>
                             <div className="border-b lg:ml-2 mt-2" />
                             <h3 className="lg:block hidden text-xs text-gray-600 font-semibold pt-4 pb-2 px-2">Following accounts</h3>
 
                             <div className="lg:hidden block pt-3" />
                             <ClientOnly>
-                                <div className="cursor-pointer"> 
-                                    <MenuItemFollow user={{ id: '1', name: "Test user", image: "https://placehold.co/50"}} /> 
+                                <div className="cursor-pointer">
+                                    {randomUsers?.map((user, index) => ( 
+                                        <MenuItemFollow key={index} user={user} /> 
+                                    ))}
                                 </div>
                             </ClientOnly>
 
@@ -65,6 +76,8 @@ export default function SideNavMain() {
                         <p className="pt-4 px-2">Help Safety Terms Privacy Creator Portal Community Guidelines</p>
                         <p className="pt-4 px-2">© 2023 TikTok</p>
                     </div>
+
+                    <div  className="pb-14"></div>
                 </div>
             </div>
         </>
